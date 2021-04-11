@@ -8,14 +8,14 @@
                 @foreach ($popularMovie as $movie)
                     @if ($loop->index < 16)
                         <div class="mt-8 relative">
-                            <a href="#">
+                            <a href="{{ route('movie.show', $movie['id']) }}">
                                 <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" class="hover:opacity-50 transition ease-in-out duration-150 rounded-lg"/>
                             </a>
                             <span class="ml-3 mt-3 border-2 border-yellow-500 rounded-full w-8 h-8 text-center absolute top-0 left-0 text-white font-semibold text-sm flex justify-center items-center">
                                 {{ $movie['vote_average'] * 10 }} <small class="text-xs">%</small>
                             </span>
                             <div class="mt-2">
-                                <a href="#" class="text-md pt-4 text-white font-semibold hover:text-yellow-500">{{ $movie['title'] }}</a>
+                                <a href="{{ route('movie.show', $movie['id']) }}" class="text-md pt-4 text-white font-semibold hover:text-yellow-500">{{ $movie['title'] }}</a>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, y') }}</span>
                                 </div>
@@ -32,14 +32,14 @@
                 @foreach ($upcomingMovie as $movie)
                     @if ($loop->index < 16)
                         <div class="mt-8 relative">
-                            <a href="#">
+                            <a href="{{ route('movie.show', $movie['id']) }}">
                                 <img src="{{ 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'] }}" class="hover:opacity-50 transition ease-in-out duration-150 rounded-lg"/>
                             </a>
                             <span class="ml-3 mt-3 border-2 border-yellow-500 rounded-full w-8 h-8 text-center absolute top-0 left-0 text-white font-semibold text-sm flex justify-center items-center">
                                 {{ $movie['vote_average'] * 10 }} <small class="text-xs">%</small>
                             </span>
                             <div class="mt-2">
-                                <a href="#" class="text-md pt-4 text-white font-semibold hover:text-yellow-500">{{ $movie['title'] }}</a>
+                                <a href="{{ route('movie.show', $movie['id']) }}" class="text-md pt-4 text-white font-semibold hover:text-yellow-500">{{ $movie['title'] }}</a>
                                 <div class="flex items-center text-gray-400 text-sm">
                                     <span>{{ \Carbon\Carbon::parse($movie['release_date'])->format('M d, y') }}</span>
                                 </div>
@@ -49,6 +49,7 @@
                 @endforeach
             </div>                  
         </div>
+        
 
     </div>
 @endsection
